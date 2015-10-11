@@ -33,6 +33,7 @@ class PaymentTestCase(TestCase):
         pass
 
     def test_view_registration_payment(self):
+        a = 1
         url = reverse('registration_payment')
         response = self.client.post(url, {'test': 1})
         self.assertNotEqual(response['content-type'], 'application/javascript', 'error raise and must be ajax' )
