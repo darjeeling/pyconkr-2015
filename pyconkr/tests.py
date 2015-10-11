@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import pytest
 from django.test import TestCase
 from django.http import HttpResponse
 from django.test import Client
@@ -11,6 +12,7 @@ from pyconkr.helper import render_io_error
 User = get_user_model()
 
 
+@pytest.mark.django_db
 class HelperFunctionTestCase(TestCase):
     def setUp(self):
         pass
@@ -23,6 +25,7 @@ class HelperFunctionTestCase(TestCase):
         self.assertEqual(a.status_code, 406, "render io error status code must be 406")
 
 
+@pytest.mark.django_db
 class PaymentTestCase(TestCase):
     def setUp(self):
         self.client = Client()
